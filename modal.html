@@ -1,73 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modal Oyna</title>
-    <style>
-        body {
-            background-image: url("./olcha-1.jpg");
+    <title>Ro'yxat</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #000;
+        background-image: url("./olcha-1.jpg");
             background-size: cover;
             background-repeat:no-repeat ;
-           
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); 
-            display: flex; 
-            justify-content: center;
-            align-items: center;
-        }
-        .modal {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        #closeModal{
-            
-            border-radius: 8px;
-            font-size:20px ;
-            width: 200px;
-            background-color: rgba(189, 31, 31, 0.664);
-            color: white;
-        }
-        a{
-            text-decoration: none;
-        }
-    </style>
-</head>
+    }
+
+    .wrapper {
+        position: relative;
+        width: 400px;
+        height: 220px;
+        background: #000;
+        box-shadow: 0 0 50px #0ef;
+        border-radius: 20px;
+        padding: 40px;
+        overflow: hidden;
+    }
+
+   
+    h2 {
+        font-size: 30px;
+        color: #fff;
+        text-align: center;
+    }
+
+    button {
+        position: relative;
+        width: 100%;
+        height: 40px;
+        background: #0ef;
+        box-shadow: 0 0 10px #0ef;
+        font-size: 16px;
+        color: #000;
+        font-weight: 500;
+        cursor: pointer;
+        border-radius: 30px;
+        border: none;
+        outline: none;
+    }
+button:hover{
+    box-shadow: 0 0 13px rgb(255, 81, 0);
+}
+    a {
+        text-decoration: none;
+    }
+</style>
+
 <body>
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal">
-            <h1>Siz ro'yxatdan o'tdingiz</h1>
-            <button id="closeModal"><a href="./signIn.html">Yopish</a></button>
-        </div>
+    <div class="wrapper">
+        <h2>Siz ro'yxatdan o'tdingiz</h2>
+        <button type="submit" onclick="window.location.href='./signIn.html'">Yopish</button>
+    </div>
     </div>
 
     <script>
-        let modalOverlay = document.querySelector('#modalOverlay');
-        let closeModalButton = document.getElementById('closeModal');
-
-        closeModalButton.addEventListener('click', () => {
-            modalOverlay.style.display = 'none';
-        });
-
-        modalOverlay.addEventListener('click', (event) => {
-            if (event.target === modalOverlay) {
-                modalOverlay.style.display = "none";
-            }
-        });
+      const signInBtnLink = document.querySelector('.signInBtn-link');
+    const signUpBtnLink = document.querySelector('.signUpBtn-link');
+    const wrapper = document.querySelector('.wrapper');
+    signUpBtnLink.addEventListener('click', () => {
+      wrapper.classList.toggle('active');
+    });
+    signInBtnLink.addEventListener('click', () => {
+      wrapper.classList.toggle('active');
+    });
     </script>
 </body>
+
 </html>
